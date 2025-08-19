@@ -1,28 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset= "UTF-8">
-  <title>Malla Curricular Interactiva</title>
+  <meta charset="UTF-8">
+  <title>Malla Interactiva</title>
   <link rel="stylesheet" href="estilos.css">
+  <!-- Cargar Mermaid -->
   <script type="module">
-    import mermaid from
-'https: cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
     mermaid.initialize({ startOnLoad: true });
   </script>
 </head>
 <body>
-  <h1>Malla Curricular Interactiva</h1>
+  <h1>Malla Curricular</h1>
+
+  <!-- Contenedor del diagrama -->
   <div class="mermaid">
     graph TD
-     A[Matemáticas I] --> B[Matemáticas II]
-      B --> C[Ecuaciones Diferenciales]
-      A --> D[Física I]
-      D --> E[Física II]
-      C --> F[Mecánica de Fluidos]
-      E --> F
-      F --> G[Proyecto Final]
-  </div>
 
-  <script src="script.js"></script>
+    %% 1er Semestre
+    A1[Biología del Desarrollo]:::sem1
+    A2[Fisiología General]:::sem1
+    A3[Anatomía]:::sem1
+    A4[Histología]:::sem1
+    A5[Integración Profesional I]:::sem1
+    A6[Curso Formación General]:::sem1
+    A7[Inglés I]:::sem1
+
+    %% 2do Semestre
+    B1[Fundamentos de Enfermería II]:::sem2
+    B2[Neonatología I]:::sem2
+    B3[Fisiología de Sistemas]:::sem2
+    B4[Inmunología]:::sem2
+    B5[Agentes Vivos de Enfermedad]:::sem2
+    B6[Ciencias Sociales y Salud II]:::sem2
+    B7[Inglés II]:::sem2
+
+    %% 3er Semestre
+    C1[Ginecología Fisiológica]:::sem3
+    C2[Fisiopatología]:::sem3
+    C3[Infectología]:::sem3
+    C4[Farmacología]:::sem3
+    C5[Integración Profesional II]:::sem3
+    C6[Investigación en Salud I]:::sem3
+
+    %% Relaciones
+    A1 --> B4
+    A2 --> B3
+    A3 --> B1
+    B2 --> C1
+    B3 --> C2
+    B4 --> C3
+    C2 --> C4
+
+    %% Clases de estilo
+    classDef sem1 fill:#a3c4f3,stroke:#333,stroke-width:1px,color:#000;
+    classDef sem2 fill:#c4a3f3,stroke:#333,stroke-width:1px,color:#000;
+    classDef sem3 fill:#f3a3a3,stroke:#333,stroke-width:1px,color:#000;
+  </div>
 </body>
 </html>
